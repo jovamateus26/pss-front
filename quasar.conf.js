@@ -48,7 +48,7 @@ module.exports = function (ctx) {
       env: {
         API: ctx.dev
           ? 'http://localhost:3333/'
-          : 'https://prod.api.com'
+          : 'http://34.95.134.128:3333/'
       },
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
