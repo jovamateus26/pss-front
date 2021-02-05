@@ -2,10 +2,12 @@
   <q-layout view="lHh Lpr lFf">
     <div class="bg-blue-1 text-bold text-green-10">
       <q-toolbar>
+        <div class="col-md-2 col-xs-0"></div>
         <q-btn to="/" flat round dense icon="home" class="q-mr-sm" />
         <div><strong>PSS </strong>Tibagi</div>
         <q-space />
-        <q-btn flat dense icon="person" label="entrar" />
+        <q-btn to="/usuario/login" flat dense icon="person" label="entrar" />
+        <div class="col-md-2 col-xs-0"></div>
       </q-toolbar>
     </div>
     <q-page-container>

@@ -1,11 +1,11 @@
 <template>
   <q-page class="">
-    <div class="row q-pa-lg">
+    <div class="row q-pa-lg text-green-10">
       <div class="col-md-2 col-xs-0"></div>
-      <div class="col-md-8 col-xs-12">
+      <div class="col-md-8 col-xs-12 q-gutter-y-md">
         <q-card v-for="item in pssLista" v-bind:key="item.id" class="col-all">
           <q-card-section class="bg-blue-1 text-green-10 text-bold justify-center text-center">
-            {{ item.nrEditalConcurso }}/{{ item.anoEditalConcurso }} {{ item.tituloPss }}
+            {{ item.tituloPss }} {{ item.nrEditalConcurso }}/{{ item.anoEditalConcurso }}
           </q-card-section>
           <q-card-section>
             Inscrições de <b>{{ formatarData(item.dataInicio) }}</b> até <b>{{ formatarData(item.dataFinal) }}</b>

@@ -1,3 +1,5 @@
+import logado from './middleware/logado'
+
 const routes = [
   {
     path: '/',
@@ -17,6 +19,40 @@ const routes = [
         name: 'pss',
         path: '',
         component: () => import('pages/pss/Detalhe')
+      }
+    ]
+  },
+  {
+    path: '/inscricao/vaga/:id',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        name: 'inscricao',
+        path: '',
+        component: () => import('pages/inscricao/Cadastro'),
+        beforeEnter: logado
+      }
+    ]
+  },
+  {
+    path: '/login',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        name: 'login',
+        path: '',
+        component: () => import('pages/usuario/Login')
+      }
+    ]
+  },
+  {
+    path: '/usuario/cadastro',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        name: 'cadastro',
+        path: '',
+        component: () => import('pages/usuario/Cadastro')
       }
     ]
   },
