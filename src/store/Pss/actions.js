@@ -16,7 +16,6 @@ const getPssLista = ({ commit }) => {
   })
 }
 const getPssDetalhe = ({ commit }, pss) => {
-  console.log(pss)
   return new Promise((resolve, reject) => {
     Vue.prototype.$axios({
       method: 'GET',

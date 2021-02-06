@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import PssModulo from './Pss'
 import VagaModulo from './Vaga'
 import UserModulo from './User'
+import InscricaoModulo from './Inscricao'
 // import example from './module-example'
 
 Vue.use(Vuex)
@@ -22,7 +23,8 @@ export default function (/* { ssrContext } */) {
       // example
       Pss: PssModulo,
       Vaga: VagaModulo,
-      Usuario: UserModulo
+      Usuario: UserModulo,
+      Inscricao: InscricaoModulo
     },
 
     // enable strict mode (adds overhead!)
