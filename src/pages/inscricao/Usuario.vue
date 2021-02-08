@@ -11,23 +11,26 @@
         <q-card>
           <q-card-section>
             <div class="row">
-              <div class="text-bold col-md-8">Vaga</div>
+              <div class="text-bold col-md-5">Vaga</div>
+              <div class="text-bold col-md-2">PSS</div>
               <div class="text-bold col-md-2">Situação</div>
-              <div class="text-bold col-md-2">Opções</div>
+              <div class="text-bold col-md-3">Opções</div>
             </div>
           </q-card-section>
         </q-card>
         <q-card v-for="item in listaInscricaoUsuario" v-bind:key="item.id">
           <q-card-section>
             <div class="row">
-              <div class="text-bold col-md-8">{{ item.vaga.nmVaga }}</div>
+              <div class="text-bold col-md-5">{{ item.vaga.nmVaga }}</div>
+              <div class="text-bold col-md-2">{{ item.vaga.pss.nrEditalConcurso }}/{{ item.vaga.pss.anoEditalConcurso }}</div>
               <div class="text-bold col-md-2">em andamento</div>
-              <div class="text-bold col-md-2">
+              <div class="text-bold col-md-3">
+                <q-btn flat color="primary" label="imprimir" />
+                <q-btn flat color="negative" label="deletar" />
               </div>
             </div>
           </q-card-section>
         </q-card>
-        {{ listaInscricaoUsuario }}
       </div>
       <div class="col-md-2 col-xs-0"/>
     </div>
