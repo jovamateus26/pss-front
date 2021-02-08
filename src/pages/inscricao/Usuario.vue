@@ -22,12 +22,21 @@
           <q-card-section>
             <div class="row">
               <div class="text-bold col-md-5 col-xs-12">{{ item.vaga.nmVaga }}</div>
-              <div class="text-bold col-md-2 col-xs-12">{{ item.vaga.pss.nrEditalConcurso }}/{{ item.vaga.pss.anoEditalConcurso }}</div>
+              <div class="text-bold col-md-2 col-xs-12">{{
+                  item.vaga.pss.nrEditalConcurso
+                }}/{{ item.vaga.pss.anoEditalConcurso }}
+              </div>
               <div class="text-bold col-md-2 col-xs-12">em andamento</div>
               <div class="text-bold col-md-3 col-xs-12">
                 <div class="row justify-between">
-                  <div class="text-green-10"><q-icon size="xs" name="print"/>Imprimir</div>
-                  <div class="text-negative"><q-icon size="xs" name="delete"/>Deletar</div>
+                  <div class="text-green-10">
+                    <q-icon size="xs" name="print"/>
+                    Imprimir
+                  </div>
+                  <div class="text-negative" @click="confirmDelete(item)">
+                    <q-icon size="xs" name="delete"/>
+                    Deletar
+                  </div>
                 </div>
               </div>
             </div>
@@ -35,6 +44,20 @@
         </q-card>
       </div>
       <div class="col-md-2 col-xs-0"/>
+      <q-dialog persistent v-model="confirmDeletar">
+        <q-card style="width: 300px">
+          <q-card-section class="text-center text-bold text-green-10">
+            <div>Deletar</div>
+          </q-card-section>
+          <q-card-section>
+            Deseja deletar a inscrição?
+          </q-card-section>
+          <q-card-actions align="right">
+            <q-btn flat label="Sim" color="green-10" @click="deletar"/>
+            <q-btn flat label="Não" color="negative" v-close-popup/>
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
     </div>
 
   </q-page>
@@ -45,10 +68,31 @@ import { mapActions, mapState } from 'vuex'
 
 export default {
   // name: 'PageName',
+  data () {
+    return {
+      confirmDeletar: false,
+      inscricao: {
+        id: ''
+      }
+    }
+  },
   methods: {
     ...mapActions({
-      getInscricaoUsuario: 'Inscricao/getInscricaoUsuario'
-    })
+      getInscricaoUsuario: 'Inscricao/getInscricaoUsuario',
+      deletarInscricaoId: 'Inscricao/deletarInscricaoId'
+    }),
+    confirmDelete (item) {
+      this.confirmDeletar = !this.confirmDeletar
+      this.inscricao = item
+      console.log(item.id)
+    },
+    deletar () {
+      this.deletarInscricaoId(this.inscricao.id)
+        .then(() => {
+          this.getInscricaoUsuario()
+          this.confirmDeletar = false
+        })
+    }
   },
   computed: {
     ...mapState('Inscricao', ['listaInscricaoUsuario'])
