@@ -9,7 +9,7 @@
           </q-card-section>
         </q-card>
         <q-card>
-          <q-card-section>
+          <q-card-section class="mobile-hide">
             <div class="row">
               <div class="text-bold col-md-5">Vaga</div>
               <div class="text-bold col-md-2">PSS</div>
@@ -21,12 +21,14 @@
         <q-card v-for="item in listaInscricaoUsuario" v-bind:key="item.id">
           <q-card-section>
             <div class="row">
-              <div class="text-bold col-md-5">{{ item.vaga.nmVaga }}</div>
-              <div class="text-bold col-md-2">{{ item.vaga.pss.nrEditalConcurso }}/{{ item.vaga.pss.anoEditalConcurso }}</div>
-              <div class="text-bold col-md-2">em andamento</div>
-              <div class="text-bold col-md-3">
-                <q-btn flat color="primary" label="imprimir" />
-                <q-btn flat color="negative" label="deletar" />
+              <div class="text-bold col-md-5 col-xs-12">{{ item.vaga.nmVaga }}</div>
+              <div class="text-bold col-md-2 col-xs-12">{{ item.vaga.pss.nrEditalConcurso }}/{{ item.vaga.pss.anoEditalConcurso }}</div>
+              <div class="text-bold col-md-2 col-xs-12">em andamento</div>
+              <div class="text-bold col-md-3 col-xs-12">
+                <div class="row justify-between">
+                  <div class="text-green-10"><q-icon size="xs" name="print"/>Imprimir</div>
+                  <div class="text-negative"><q-icon size="xs" name="delete"/>Deletar</div>
+                </div>
               </div>
             </div>
           </q-card-section>
