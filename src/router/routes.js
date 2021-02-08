@@ -35,6 +35,18 @@ const routes = [
     ]
   },
   {
+    path: '/inscricao/usuario',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        name: 'inscricaoUsuario',
+        path: '',
+        component: () => import('pages/inscricao/Usuario'),
+        beforeEnter: logado
+      }
+    ]
+  },
+  {
     path: '/login',
     component: () => import('layouts/MainLayout.vue'),
     children: [

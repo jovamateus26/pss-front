@@ -12,6 +12,20 @@ const cadastrarInscricao = ({ commit }, inscricao) => {
   })
 }
 
+const getInscricaoUsuario = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    Vue.prototype.$axios.get('/inscricao')
+      .then(resp => {
+        commit('SET_INSCRICAO_USUARIO', resp.data)
+        resolve(resp)
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+
 export {
-  cadastrarInscricao
+  cadastrarInscricao,
+  getInscricaoUsuario
 }

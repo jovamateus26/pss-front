@@ -26,7 +26,7 @@
                 Edital 1/2021
               </div>
               <div class="col-md-6 col-xs-6 text-center">
-                <q-btn color="green-10" icon="folder" label="Abrir"/>
+                <q-btn color="green-10" icon="folder" label="Abrir" @click="downloadEdital()"/>
               </div>
             </div>
           </q-card-section>
@@ -69,7 +69,8 @@ export default {
   methods: {
     ...mapActions({
       getPssDetalhe: 'Pss/getPssDetalhe',
-      getVagaPssLista: 'Vaga/getVagaPssLista'
+      getVagaPssLista: 'Vaga/getVagaPssLista',
+      downloadEdital: 'Vaga/downloadEdital'
     }),
     async detalhar () {
       await this.getPssDetalhe(this.$route.params.id)

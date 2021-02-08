@@ -29,7 +29,25 @@ const getVagaDetalheId = ({ commit }, vaga) => {
   })
 }
 
+const downloadEdital = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    Vue.prototype.$axios({ url: 'edital', method: 'GET', responseType: 'blob' })
+      .then(resp => {
+        var blob = new Blob([resp.data], {
+          type: 'application/pdf'
+        })
+        var url = window.URL.createObjectURL(blob)
+        window.open(url)
+        resolve(resp)
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+
 export {
   getVagaPssLista,
-  getVagaDetalheId
+  getVagaDetalheId,
+  downloadEdital
 }

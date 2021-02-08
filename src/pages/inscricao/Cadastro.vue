@@ -5,7 +5,7 @@
       <div class="col-md-8 col-xs-12 q-gutter-y-md">
         <q-card class="bg-blue-1 text-center text-bold text-green-10">
           <q-card-section>
-            {{vagaDetalheId.nmVaga}}
+            {{vagaDetalheId.nmVaga}} - {{vagaDetalheId.localVaga}}
           </q-card-section>
         </q-card>
         <q-form @submit="cadastrar" class="text-bold">
