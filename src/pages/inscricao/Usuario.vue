@@ -133,7 +133,6 @@ export default {
         })
     },
     detalhar (item) {
-      console.log(item)
       this.getInscricaoCalculo(item)
     }
   },
