@@ -45,15 +45,35 @@
                     </div>
                   </template>
                   <q-card>
+                    <q-card-section>
+                      <div class="row mobile-hide">
+                        <div class="col-md-6">Titulos</div>
+                        <div class="col-md-6">Pontuação</div>
+                      </div>
+                    </q-card-section>
                     <q-card-section v-for="parcial in inscricaoCalculo.parcial" v-bind:key="parcial.id">
                       <div class="row">
-                        <div class="col-md-6 col-xs-12">{{parcial.titulo}}</div>
-                        <div class="col-md-6 col-xs-12">{{parcial.total}}</div>
+                        <div class="col-md-6 col-xs-12">
+                          <div class="mobile-only">Titúlo:</div>
+                          <div>{{parcial.titulo}}</div>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                          <div class="mobile-only">Pontuação:</div>
+                          <div>{{parcial.total}}</div>
+                        </div>
                       </div>
+                      <q-separator/>
                     </q-card-section>
                     <q-separator/>
                     <q-card-section class="text-green-10 text-bold">
-                      Total: {{inscricaoCalculo.total}}
+                      <div class="row">
+                        <div class="col-md-6 col-xs-6">
+                          Total:
+                        </div>
+                        <div class="col-md-6">
+                          {{inscricaoCalculo.total}}
+                        </div>
+                      </div>
                     </q-card-section>
                   </q-card>
                 </q-expansion-item>
