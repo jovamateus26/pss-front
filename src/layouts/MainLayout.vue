@@ -6,7 +6,21 @@
         <q-btn to="/" flat round dense icon="home" class="q-mr-sm" />
         <div><strong>PSS </strong>Tibagi</div>
         <q-space />
-        <q-btn :to="{ name: 'inscricaoUsuario'}" flat dense icon="person" label="minhas inscrições" />
+        <q-btn-dropdown flat dense label="minhas inscrições">
+          <q-list>
+            <q-item :to="{ name: 'inscricaoUsuario'}" clickable v-close-popup>
+              <q-item-section>
+                <q-item-label>Inscrições</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup>
+              <q-item-section @click="sair">
+                <q-item-label>Sair</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
         <div class="col-md-2 col-xs-0"></div>
       </q-toolbar>
     </div>
@@ -22,6 +36,12 @@ export default {
   name: 'MainLayout',
   data () {
     return {
+    }
+  },
+  methods: {
+    sair () {
+      localStorage.removeItem('token')
+      this.$router.push('/')
     }
   }
 }
