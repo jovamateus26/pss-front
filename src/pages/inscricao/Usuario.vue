@@ -20,64 +20,64 @@
         </q-card>
         <q-card v-for="item in listaInscricaoUsuario" v-bind:key="item.id">
           <q-card-section>
-              <q-list class="">
-                <q-expansion-item @show="getInscricaoCalculo(item)">
-                  <template v-slot:header>
-                    <div class="row col-all">
-                      <div class="text-bold col-md-5 col-xs-12">{{ item.vaga.nmVaga }}</div>
-                      <div class="text-bold col-md-2 col-xs-12">{{
-                          item.vaga.pss.nrEditalConcurso
-                        }}/{{ item.vaga.pss.anoEditalConcurso }}
-                      </div>
-                      <div class="text-bold col-md-2 col-xs-12">em andamento</div>
-                      <div class="text-bold col-md-3 col-xs-12">
-                        <div class="row justify-between">
-                          <div class="text-negative" @click="confirmDelete(item)">
-                            <q-icon size="xs" name="delete"/>
-                            Deletar
-                          </div>
-                          <div class="text-green-10">
-                            <q-icon size="xs" name="print"/>
-                            Imprimir
-                          </div>
+            <q-list class="">
+              <q-expansion-item @show="detalhar(item)">
+                <template v-slot:header>
+                  <div class="row col-all">
+                    <div class="text-bold col-md-5 col-xs-12">{{ item.vaga.nmVaga }}</div>
+                    <div class="text-bold col-md-2 col-xs-12">{{
+                        item.vaga.pss.nrEditalConcurso
+                      }}/{{ item.vaga.pss.anoEditalConcurso }}
+                    </div>
+                    <div class="text-bold col-md-2 col-xs-12">em andamento</div>
+                    <div class="text-bold col-md-3 col-xs-12">
+                      <div class="row justify-between">
+                        <div class="text-negative" @click="confirmDelete(item)">
+                          <q-icon size="xs" name="delete"/>
+                          Deletar
+                        </div>
+                        <div class="text-green-10">
+                          <q-icon size="xs" name="print"/>
+                          Imprimir
                         </div>
                       </div>
                     </div>
-                  </template>
-                  <q-card>
-                    <q-card-section>
-                      <div class="row mobile-hide">
-                        <div class="col-md-6">Titulos</div>
-                        <div class="col-md-6">Pontuação</div>
+                  </div>
+                </template>
+                <q-card>
+                  <q-card-section>
+                    <div class="row mobile-hide">
+                      <div class="col-md-6">Titulos</div>
+                      <div class="col-md-6">Pontuação</div>
+                    </div>
+                  </q-card-section>
+                  <q-card-section v-for="parcial in inscricaoCalculo.parcial" v-bind:key="parcial.id">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-12">
+                        <div class="mobile-only">Titúlo:</div>
+                        <div>{{ parcial.titulo }}</div>
                       </div>
-                    </q-card-section>
-                    <q-card-section v-for="parcial in inscricaoCalculo.parcial" v-bind:key="parcial.id">
-                      <div class="row">
-                        <div class="col-md-6 col-xs-12">
-                          <div class="mobile-only">Titúlo:</div>
-                          <div>{{parcial.titulo}}</div>
-                        </div>
-                        <div class="col-md-6 col-xs-12">
-                          <div class="mobile-only">Pontuação:</div>
-                          <div>{{parcial.total}}</div>
-                        </div>
+                      <div class="col-md-6 col-xs-12">
+                        <div class="mobile-only">Pontuação:</div>
+                        <div>{{ parcial.total }}</div>
                       </div>
-                      <q-separator/>
-                    </q-card-section>
+                    </div>
                     <q-separator/>
-                    <q-card-section class="text-green-10 text-bold">
-                      <div class="row">
-                        <div class="col-md-6 col-xs-6">
-                          Total:
-                        </div>
-                        <div class="col-md-6">
-                          {{inscricaoCalculo.total}}
-                        </div>
+                  </q-card-section>
+                  <q-separator/>
+                  <q-card-section class="text-green-10 text-bold">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-6">
+                        Total:
                       </div>
-                    </q-card-section>
-                  </q-card>
-                </q-expansion-item>
-              </q-list>
+                      <div class="col-md-6">
+                        {{ inscricaoCalculo.total }}
+                      </div>
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </q-expansion-item>
+            </q-list>
           </q-card-section>
         </q-card>
       </div>
@@ -131,6 +131,10 @@ export default {
           this.getInscricaoUsuario()
           this.confirmDeletar = false
         })
+    },
+    detalhar (item) {
+      console.log(item)
+      this.getInscricaoCalculo(item)
     }
   },
   computed: {

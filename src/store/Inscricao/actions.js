@@ -42,6 +42,7 @@ const getInscricaoCalculo = ({ commit }, inscricao) => {
     Vue.prototype.$axios.get('/calculo/' + inscricao.id)
       .then(resp => {
         commit('SET_INSCRICAO_CALCULO', resp.data)
+        console.log(resp)
         resolve(resp)
       })
       .catch(err => {
