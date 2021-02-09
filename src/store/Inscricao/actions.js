@@ -50,9 +50,27 @@ const getInscricaoCalculo = ({ commit }, inscricao) => {
   })
 }
 
+const downloadInscricao = ({ commit }, inscricao) => {
+  return new Promise((resolve, reject) => {
+    Vue.prototype.$axios({ url: '/download/inscricao/' + inscricao.id, method: 'GET', responseType: 'blob' })
+      .then(resp => {
+        var blob = new Blob([resp.data], {
+          type: 'application/pdf'
+        })
+        var url = window.URL.createObjectURL(blob)
+        window.open(url)
+        resolve(resp)
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+
 export {
   cadastrarInscricao,
   getInscricaoUsuario,
   deletarInscricaoId,
-  getInscricaoCalculo
+  getInscricaoCalculo,
+  downloadInscricao
 }

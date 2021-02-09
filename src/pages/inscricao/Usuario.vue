@@ -37,14 +37,18 @@
                           Deletar
                         </div>
                         <div class="text-green-10">
-                          <q-icon size="xs" name="print"/>
-                          Imprimir
+                          <q-icon size="xs" name="plus"/>
+                          Detalhes
                         </div>
                       </div>
                     </div>
                   </div>
                 </template>
                 <q-card>
+                  <q-card-section class="row">
+                    <q-btn label="imprimir" color="green-10" class="col-all" @click="downloadInscricao(item)"/>
+                    {{item.id}}
+                  </q-card-section>
                   <q-card-section>
                     <div class="row mobile-hide">
                       <div class="col-md-6">Titulos</div>
@@ -118,7 +122,8 @@ export default {
     ...mapActions({
       getInscricaoUsuario: 'Inscricao/getInscricaoUsuario',
       deletarInscricaoId: 'Inscricao/deletarInscricaoId',
-      getInscricaoCalculo: 'Inscricao/getInscricaoCalculo'
+      getInscricaoCalculo: 'Inscricao/getInscricaoCalculo',
+      downloadInscricao: 'Inscricao/downloadInscricao'
     }),
     confirmDelete (item) {
       this.confirmDeletar = !this.confirmDeletar
