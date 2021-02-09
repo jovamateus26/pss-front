@@ -47,7 +47,6 @@
                 <q-card>
                   <q-card-section class="row">
                     <q-btn label="imprimir" color="green-10" class="col-all" @click="downloadInscricao(item)"/>
-                    {{item.id}}
                   </q-card-section>
                   <q-card-section>
                     <div class="row mobile-hide">
