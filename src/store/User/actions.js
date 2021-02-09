@@ -4,6 +4,7 @@ const cadastrarUsuario = ({ commit }, usuario) => {
   return new Promise((resolve, reject) => {
     Vue.prototype.$axios.post('/user', usuario)
       .then(resp => {
+        localStorage.setItem('token', resp.data.type + ' ' + resp.data.token)
         resolve(resp)
       })
       .catch(err => {

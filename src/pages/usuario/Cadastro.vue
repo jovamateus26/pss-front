@@ -101,7 +101,7 @@ export default {
     cadastrar () {
       this.cadastrarUsuario(this.usuario)
         .then(resp => {
-          console.log(resp)
+          this.$router.push('/inscricao/usuario/')
         })
         .catch(err => {
           this.$q.notify({
