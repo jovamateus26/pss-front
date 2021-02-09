@@ -37,8 +37,22 @@ const deletarInscricaoId = ({ commit }, id) => {
   })
 }
 
+const getInscricaoCalculo = ({ commit }, inscricao) => {
+  return new Promise((resolve, reject) => {
+    Vue.prototype.$axios.get('/calculo/' + inscricao.id)
+      .then(resp => {
+        commit('SET_INSCRICAO_CALCULO', resp.data)
+        resolve(resp)
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+
 export {
   cadastrarInscricao,
   getInscricaoUsuario,
-  deletarInscricaoId
+  deletarInscricaoId,
+  getInscricaoCalculo
 }
