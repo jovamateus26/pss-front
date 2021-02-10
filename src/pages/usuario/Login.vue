@@ -23,7 +23,7 @@
           <q-card>
             <q-card-section class="row justify-center q-gutter-x-md q-pt-xl">
               <q-btn to="/usuario/cadastro" color="green-7" label="Cadastrar-me"/>
-              <q-btn color="primary" label="Recuperar senha"/>
+              <q-btn color="primary" label="Recuperar senha" :to="{name: 'resetsenha'}"/>
             </q-card-section>
           </q-card>
         </q-form>

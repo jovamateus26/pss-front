@@ -68,7 +68,39 @@ const routes = [
       }
     ]
   },
-
+  {
+    path: '/usuario/resetsenha',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        name: 'resetsenha',
+        path: '',
+        component: () => import('pages/usuario/ResetSenha')
+      }
+    ]
+  },
+  {
+    path: '/usuario/alterarsenha/:token',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        name: 'alterarsenha',
+        path: '',
+        component: () => import('pages/usuario/AlterarSenha')
+      }
+    ]
+  },
+  {
+    path: '/teste',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        name: 'alterarsenha',
+        path: '',
+        component: () => import('pages/teste')
+      }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
