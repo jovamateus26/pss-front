@@ -90,17 +90,6 @@ const routes = [
       }
     ]
   },
-  {
-    path: '/teste',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      {
-        name: 'alterarsenha',
-        path: '',
-        component: () => import('pages/teste')
-      }
-    ]
-  },
   // Always leave this as last one,
   // but you can also remove it
   {

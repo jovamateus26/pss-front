@@ -30,7 +30,6 @@ const resetSenha = ({ commit }, usuario) => {
   return new Promise((resolve, reject) => {
     Vue.prototype.$axios.post('/reset/password', usuario)
       .then(resp => {
-        console.log(resp)
         resolve(resp)
       })
       .catch(err => {
