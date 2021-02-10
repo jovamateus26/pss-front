@@ -3,7 +3,7 @@
     <div class="row q-pa-lg text-green-10">
       <div class="col-md-2 col-xs-0"/>
       <div class="col-md-8 col-xs-12">
-        <q-form class="q-gutter-y-md text-center text-green-10">
+        <q-form @submit="login" class="q-gutter-y-md text-center text-green-10">
           <q-card class="bg-blue-1">
             <q-card-section class="text-center text-bold text-green-10">
               Login
@@ -17,7 +17,7 @@
               <q-input label="Senha" type="password" v-model="usuario.password"/>
             </q-card-section>
             <q-card-section class="row justify-center">
-              <q-btn class="col-md-3 col-xs-12" color="green-10" label="Entrar" @click="login"/>
+              <q-btn type="submit" class="col-md-3 col-xs-12" color="green-10" label="Entrar"/>
             </q-card-section>
           </q-card>
           <q-card>
