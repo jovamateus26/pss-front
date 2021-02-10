@@ -53,6 +53,7 @@ export default {
             color: 'positive',
             message: 'Senha alterada com sucesso'
           })
+          this.$router.push('/login')
         })
         .catch(err => {
           this.$q.notify({
