@@ -54,7 +54,7 @@
             <q-card-section>
               <div class="q-gutter-sm">
                 <div>
-                  Experiência na docência de Professor de Educação Infantil de 2011 a 2020.
+                  Experiência na docência da vaga de inscrição de 2011 a 2020.
                 </div>
                 <q-input v-model="titulos.experiencia" label="Quantide em anos"/>
               </div>
