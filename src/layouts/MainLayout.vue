@@ -36,6 +36,7 @@ export default {
   name: 'MainLayout',
   data () {
     return {
+      dialog: true
     }
   },
   methods: {

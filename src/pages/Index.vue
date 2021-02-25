@@ -20,6 +20,22 @@
       </div>
       <div class="col-md-2 col-xs-0"></div>
     </div>
+    <q-dialog v-model="dialog">
+      <q-card class="bg-red-8">
+        <q-card-section class="row items-center text-center justify-center q-pb-none">
+          <div class="text-h1 text-bold text-center justify-center">Aviso</div>
+          <q-space />
+          <q-btn icon="close" flat round dense v-close-popup />
+        </q-card-section>
+
+        <q-card-section class="text-h3 justify-center text-center">
+          O sistema está apenas em modo consulta, todos os formularios são exibido, mas não valida nenhuma inscrição pois já estão encerradas!
+        </q-card-section>
+        <q-card-section class="justify-center text-center">
+          <q-btn v-close-popup  label="Seguir para o sistema" color="white" text-color="red"/>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -28,6 +44,11 @@ import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'PageIndex',
+  data () {
+    return {
+      dialog: true
+    }
+  },
   methods: {
     ...mapActions({
       getPssLista: 'Pss/getPssLista'
